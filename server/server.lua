@@ -1,7 +1,7 @@
-local QBCore = exports['qb-core']:GetCoreObject()
+local QBCore = exports['qbr-core']:GetCoreObject()
 
-RegisterServerEvent('qb-log:server:CreateLog')
-AddEventHandler('qb-log:server:CreateLog', function(name, title, color, message, tagEveryone)
+RegisterServerEvent('qbr-log:server:CreateLog')
+AddEventHandler('qbr-log:server:CreateLog', function(name, title, color, message, tagEveryone)
     local tag = tagEveryone ~= nil and tagEveryone or false
     local webHook = Config.Webhooks[name] ~= nil and Config.Webhooks[name] or Config.Webhooks["default"]
     local embedData = {
@@ -26,5 +26,5 @@ AddEventHandler('qb-log:server:CreateLog', function(name, title, color, message,
 end)
 
 QBCore.Commands.Add("testwebhook", "Test Your Discord Webhook For Logs (God Only)", {}, false, function(source, args)
-    TriggerEvent("qb-log:server:CreateLog", "default", "TestWebhook", "default", "Triggered **a** test webhook :)")
+    TriggerEvent("qbr-log:server:CreateLog", "default", "TestWebhook", "default", "Triggered **a** test webhook :)")
 end, "god")
